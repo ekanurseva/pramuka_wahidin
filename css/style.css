@@ -152,6 +152,11 @@
 
 .dropdown-submenu {
     position: relative;
+    display: none;
+}
+
+.dropdown-menu-submenu.show {
+    display: block;
 }
 
 .dropdown-submenu > .dropdown-menu-submenu {
