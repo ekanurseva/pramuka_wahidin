@@ -271,10 +271,6 @@
     z-index: 1;
 }
 
-.carousel-item img{
-    height: 800px;
-}
-
 .carousel .carousel-indicators {
     top: 0;
     bottom: 0;
