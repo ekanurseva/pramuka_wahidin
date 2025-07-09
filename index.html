@@ -62,18 +62,17 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="index.html f-4" class="nav-link active">Beranda</a>
+                            <a href="index.html" class="nav-link active">Beranda</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle f-4" data-bs-toggle="dropdown">Profil</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profil</a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle" href="#">Sejarah</a>
-                                    <ul class="dropdown-menu-submenu">
+                                    <a href="#" class="dropdown-item dropdown-toggle submenu-toggle">Sejarah</a>
+                                    <ul class="dropdown-menu dropdown-menu-submenu">
                                         <li><a href="kepanduan-dunia.html" class="dropdown-item">Kepanduan Dunia</a>
                                         </li>
-                                        <li><a href="kepanduan-ind.html" class="dropdown-item">Kepanduan
-                                                Indonesia</a>
+                                        <li><a href="kepanduan-ind.html" class="dropdown-item">Kepanduan Indonesia</a>
                                         </li>
                                         <li><a href="gerakan-pramuka.html" class="dropdown-item">Gerakan Pramuka</a>
                                         </li>
@@ -81,6 +80,7 @@
                                         </li>
                                     </ul>
                                 </li>
+
 
                                 <li><a href="organisasi.html" class="dropdown-item">Organisasi</a></li>
                             </ul>
@@ -305,6 +305,37 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/counterup/counterup.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(function (toggle) {
+                toggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    // Toggle submenu
+                    const submenu = this.nextElementSibling;
+                    if (submenu.classList.contains('show')) {
+                        submenu.classList.remove('show');
+                    } else {
+                        // Tutup semua yang lain
+                        document.querySelectorAll('.dropdown-menu-submenu.show').forEach(function (open) {
+                            open.classList.remove('show');
+                        });
+                        submenu.classList.add('show');
+                    }
+                });
+            });
+
+            // Tutup submenu jika klik di mana saja di luar
+            document.addEventListener('click', function (e) {
+                document.querySelectorAll('.dropdown-menu-submenu.show').forEach(function (open) {
+                    open.classList.remove('show');
+                });
+            });
+        });
+    </script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>

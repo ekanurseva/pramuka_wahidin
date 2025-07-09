@@ -135,10 +135,27 @@
 }
 
 .dropdown-menu-submenu {
-    list-style: none !important;
-    padding-left: 0; 
-    margin: 0; 
+    display: none !important; 
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
+
+.dropdown-menu-submenu.show {
+    display: block !important;
+    visibility: visible;
+    opacity: 1;
+}
+
 
 .dropdown-submenu > .dropdown-toggle::after {
     content: "\f104"; /* Panah kiri */
@@ -152,11 +169,6 @@
 
 .dropdown-submenu {
     position: relative;
-    display: none;
-}
-
-.dropdown-menu-submenu.show {
-    display: block;
 }
 
 .dropdown-submenu > .dropdown-menu-submenu {
@@ -164,20 +176,12 @@
     position: absolute;
     top: 0;
     right: 100%; 
-    margin-top: -1px;
     border: none;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     background-color: #FFFFFF;
     visibility: hidden;
     transition: all 0.3s ease;
 }
-
-.dropdown-submenu:hover > .dropdown-menu-submenu {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-}
-
 
 @media (max-width: 991.98px) {
     .navbar .navbar-nav .nav-link  {
@@ -207,10 +211,6 @@
         box-shadow: none;
         visibility: visible;
         opacity: 1;
-    }
-
-    .dropdown-submenu:hover > .dropdown-menu-submenu {
-        display: block;   
     }
 
     .dropdown-submenu > .dropdown-toggle::after {
@@ -246,6 +246,10 @@
         display: flex !important;
         flex-basis: auto;
         justify-content: end;
+    }
+
+    .dropdown-submenu > .dropdown-menu-submenu {
+        margin-top: -33px !important;
     }
 }
 
