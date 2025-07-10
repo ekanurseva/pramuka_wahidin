@@ -251,6 +251,12 @@
     .dropdown-submenu > .dropdown-menu-submenu {
         margin-top: -33px !important;
     }
+    
+    .dropdown-submenu:hover > .dropdown-menu-submenu {
+        display: block !important;
+        visibility: visible;
+        opacity: 1;
+    }
 }
 
 
